@@ -23,6 +23,7 @@ router.get('/', function (req, res, next) {
       return res.redirect(BASE_URL + '/connections')
     }
     res.redirect(BASE_URL + '/queries')
+    //res.redirect(BASE_URL + '/sedareports')
   })
 })
 

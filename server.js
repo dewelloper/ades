@@ -42,11 +42,16 @@ var morgan = require('morgan')
 var passport = require('passport')
 var errorhandler = require('errorhandler')
 
+var sedareports = require('./routes/sedareports')
+
 var app = express()
 
 app.locals.title = 'SQLPad'
 app.locals.version = packageJson.version
 app.set('env', (DEBUG ? 'development' : 'production'))
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 if (DEBUG) app.use(errorhandler())
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
@@ -54,6 +59,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+app.use('/',sedareports);
 
 app.use(cookieParser(PASSPHRASE)) // populates req.cookies with an object
 app.use(cookieSession({secret: PASSPHRASE}))

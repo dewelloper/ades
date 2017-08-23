@@ -87,21 +87,21 @@ class App extends React.Component {
       if (this.props.currentUser.role === 'admin') {
         return (
           <NavDropdown eventKey={3} title={this.props.currentUser.email.split('@')[0]} id='user-nav-dropdown'>
-            <MenuItem eventKey={3.1} onClick={navigateToClickHandler('/connections')} >Connections</MenuItem>
-            <MenuItem eventKey={3.2} onClick={navigateToClickHandler('/users')} >Users</MenuItem>
-            <MenuItem eventKey={3.3} onClick={navigateToClickHandler('/config-values')} >Configuration</MenuItem>
+            <MenuItem eventKey={3.1} onClick={navigateToClickHandler('/connections')} >Bağlantı</MenuItem>
+            <MenuItem eventKey={3.2} onClick={navigateToClickHandler('/users')} >Kullanıcılar</MenuItem>
+            <MenuItem eventKey={3.3} onClick={navigateToClickHandler('/config-values')} >Ayarlar</MenuItem>
             <MenuItem divider />
-            <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem>
+            {/* <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem> */}
             <MenuItem divider />
-            <MenuItem eventKey={3.5} onClick={this.signout}>Sign Out</MenuItem>
+            <MenuItem eventKey={3.5} onClick={this.signout}>Çıkış</MenuItem>
           </NavDropdown>
         )
       } else {
         return (
           <NavDropdown eventKey={3} title={this.props.currentUser.email.split('@')[0]} id='user-nav-dropdown'>
-            <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem>
+            {/* <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem> */}
             <MenuItem divider />
-            <MenuItem eventKey={3.5} onClick={this.signout}>Sign Out</MenuItem>
+            <MenuItem eventKey={3.5} onClick={this.signout}>Çıkış</MenuItem>
           </NavDropdown>
         )
       }
@@ -110,12 +110,12 @@ class App extends React.Component {
       <div>
         <Navbar inverse fluid fixedTop>
           <Nav>
-            <NavItem eventKey={1} onClick={navigateToClickHandler('/queries')} >Queries</NavItem>
+            <NavItem eventKey={1} onClick={navigateToClickHandler('/queries')} >Raporlar</NavItem>
             {/*
               NOTE: /queries/new is *NOT* handled by page.js.
               clicking new while on new creates weirdness that needs to be worked out.
             */}
-            <NavItem eventKey={2} href={this.props.config.baseUrl + '/queries/new'}>New Query</NavItem>
+            <NavItem eventKey={2} href={this.props.config.baseUrl + '/queries/new'}>Yeni Rapor</NavItem>
           </Nav>
           <Nav pullRight>
             {updateNotification()}
@@ -128,17 +128,17 @@ class App extends React.Component {
         <Alert stack={{limit: 3}} position='bottom-right' />
         <Modal show={this.state.showAboutModal} onHide={this.closeAboutModal}>
           <Modal.Header closeButton>
-            <Modal.Title>About SQLPad</Modal.Title>
+            <Modal.Title>SedaReporting Hakkında</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p>
               <strong>Version</strong>: {this.state.version.current}
             </p>
             <p>
-              <strong>Project Page</strong>:
+              <strong>Project Sayfası</strong>:
               {' '}
-              <a href='http://rickbergfalk.github.io/sqlpad/' target='_blank' rel='noopener noreferrer'>
-                http://rickbergfalk.github.io/sqlpad
+              <a href='https://github.com/dewelloper/ades/' target='_blank' rel='noopener noreferrer'>
+              https://github.com/dewelloper/ades
                 {' '}
                 <span style={{marginLeft: 4}} className='glyphicon glyphicon-new-window' aria-hidden='true' />
               </a>
@@ -149,17 +149,7 @@ class App extends React.Component {
                 <a href='https://github.com/rickbergfalk/sqlpad/issues' target='_blank' rel='noopener noreferrer'>
                   Submit an Issue <span className='glyphicon glyphicon-new-window' aria-hidden='true' />
                 </a>
-              </li>
-              <li role='presentation'>
-                <a href='https://github.com/rickbergfalk/sqlpad/blob/master/CHANGELOG.md' target='_blank' rel='noopener noreferrer'>
-                  Changelog <span className='glyphicon glyphicon-new-window' aria-hidden='true' />
-                </a>
-              </li>
-              <li role='presentation'>
-                <a href='https://github.com/rickbergfalk/sqlpad' target='_blank' rel='noopener noreferrer'>
-                  GitHub Repository <span className='glyphicon glyphicon-new-window' aria-hidden='true' />
-                </a>
-              </li>
+              </li
             </ul>
           </Modal.Body>
           <Modal.Footer>

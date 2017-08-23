@@ -101,7 +101,7 @@ function init (appData) {
   })
 
   page('/queries', mustBeAuthenticated, function (ctx) {
-    document.title = 'SQLPad - Queries'
+    document.title = 'Seda Raprlar'
     ReactDOM.render(
       <App config={ctx.config} currentUser={ctx.currentUser}>
         <FilterableQueryList

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        ul.topnav li {
+            float: left;
+        }
+
+        ul.topnav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.topnav li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        ul.topnav li a.active {
+            background-color: #4CAF50;
+        }
+
+        ul.topnav li.right {
+            float: right;
+        }
+
+        @media screen and (max-width: 600px) {
+            ul.topnav li.right,
+            ul.topnav li {
+                float: none;
+            }
+        }
+    </style>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+    <script>
+        $(document).ready(function () {
+            var date_input = $('input[name="startDate"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            });
+            var date_input2 = $('input[name="endDate"]'); //our date input has the name "date"
+            var container2 = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input2.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container2,
+                todayHighlight: true,
+                autoclose: true,
+            });
+
+
+            $(".from_date").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+            }).on('changeDate', function (selected) {
+                var startDate = new Date(selected.date.valueOf());
+                $('.to_date').datepicker('setStartDate', startDate);
+            }).on('clearDate', function (selected) {
+                $('.to_date').datepicker('setStartDate', null);
+            });
+
+            $(".to_date").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+            }).on('changeDate', function (selected) {
+                var endDate = new Date(selected.date.valueOf());
+                $('.from_date').datepicker('setEndDate', endDate);
+            }).on('clearDate', function (selected) {
+                $('.from_date').datepicker('setEndDate', null);
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul class="topnav">
+            <li><a class="active" href="/query-table/jHmnr0RByHveOxu0" target="_blank">Genel Rapor</a></li>
+            <li><a href="#news">r2</a></li>
+            <li><a href="#contact">r3</a></li>
+            <li class="right"><a href="#about">r4</a></li>
+        </ul>
+
+        <div class="bootstrap-iso">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="from_date form-control" placeholder="Balang Tarıhı" type="text" name="from_date">
+                        <input class="to_date form-control" placeholder="Bıtı Tarıhı" type="text" name="to_date">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">HTML</a></li>
+                              <li><a href="#">CSS</a></li>
+                              <li><a href="#">JavaScript</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

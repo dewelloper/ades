@@ -42,7 +42,7 @@ class SignUp extends React.Component {
           <div>
             <h4>Admin Registration is Open</h4>
             <p>
-              Welcome to SQLPad!
+            Seda Rapora Hosgeldiniz!
               Since there are no admins currently in the system,
               registration is open to anyone. By signing up, you will
               be granted admin rights, and the system will be locked down.
