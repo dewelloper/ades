@@ -41,6 +41,14 @@ var Query = function (data) {
   this.tags = data.tags
   this.connectionId = data.connectionId
   this.queryText = data.queryText
+  if(typeof Params !== "undefined" && typeof Params.startDate !== "undefined")
+  {
+    var mainParts = data.queryText.split(" ");
+    var queryWithNewParams = mainParts[0].toString() +" '"+ Params.startDate +"','"+ Params.endDate +"','"+ Params.selectedMark+"'"
+    this.queryText = queryWithNewParams;
+  }
+
+ 
   this.chartConfiguration = data.chartConfiguration
   this.createdDate = data.createdDate
   this.createdBy = data.createdBy

@@ -17,6 +17,7 @@ router.get('/queries/:_id', mustBeAuthenticatedOrChartLink, function (req, res, 
   next()
 })
 
+
 /*  API routes
 ============================================================================= */
 
@@ -67,7 +68,18 @@ router.get('/api/queries', mustBeAuthenticated, function (req, res) {
   })
 })
 
+Params = new function(){
+}
+
 router.get('/api/queries/:_id', mustBeAuthenticatedOrChartLink, function (req, res) {
+  if(typeof req.app.locals.startDate !== "undefined")
+  {
+    Params = new function(){
+       this.startDate = req.app.locals.startDate;
+       this.endDate = req.app.locals.endDate;
+       this.selectedMark = req.app.locals.selectedMark;
+    }
+  }
   Connection.findAll(function (err, connections) {
     if (err) {
       console.error(err)
@@ -75,7 +87,7 @@ router.get('/api/queries/:_id', mustBeAuthenticatedOrChartLink, function (req, r
         error: 'Problem querying connection database'
       })
     }
-    Query.findOneById(req.params._id, function (err, query) {
+    Query.findOneById(req.url, function (err, query) {
       if (err) {
         console.error(err)
         return res.json({

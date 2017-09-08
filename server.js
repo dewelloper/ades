@@ -9,6 +9,7 @@ var https = require('https')
 var path = require('path')
 var packageJson = require('./package.json')
 var detectPort = require('detect-port')
+var multer  = require('multer');
 
 /*  Env/Cli Config stuff
 ============================================================================= */
@@ -58,7 +59,7 @@ app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
-}))
+}));
 
 app.use('/',sedareports);
 

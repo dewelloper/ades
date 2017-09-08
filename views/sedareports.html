@@ -46,88 +46,198 @@
                 float: none;
             }
         }
+
+        .topBetween {
+            padding-top: 20px;
+        }
     </style>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
-    />
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
     <script>
-        $(document).ready(function () {
-            var date_input = $('input[name="startDate"]'); //our date input has the name "date"
-            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input.datepicker({
-                format: 'mm/dd/yyyy',
-                container: container,
-                todayHighlight: true,
-                autoclose: true,
-            });
-            var date_input2 = $('input[name="endDate"]'); //our date input has the name "date"
-            var container2 = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input2.datepicker({
-                format: 'mm/dd/yyyy',
-                container: container2,
-                todayHighlight: true,
-                autoclose: true,
-            });
+        // $(document).ready(function () {
+        //     $('input[name="daterange"]').daterangepicker();
+        // })
+        $(function () {
+            $('input[name="daterange"]').daterangepicker();
+        });
 
+        $(function(){
+            $("#markMenu").on('click', 'li a', function(){
+              $(".m1:first-child").text($(this).text());
+              $(".m1:first-child").val($(this).text());
+           });
+        });
+        $(function(){
+            $("#reportMenu").on('click', 'li a', function(){
+              $(".m2:first-child").text($(this).text());
+              $(".m2:first-child").val($(this).text());
+           });
+        });   
+        
+        $(function(){				
+                $('#select_link').click(function(e){
+                    e.preventDefault();
+                    var params = {};
+                    var dateparts = $("#daterange").val().trim().split("-");
+                    params.startDate = dateparts[0].toString();
+                    params.endDate = dateparts[1].toString();
+                    params.selectedMark =  $(".m1:first-child").text();
+					$.ajax({
+						type: 'POST',
+					    data: JSON.stringify(params),
+				        contentType: 'application/json',
+                        url: 'http://localhost:81/setlocalparams',						
+                        success: function(data) {
+                            window.open('http://localhost:81/query-table/s9CLfHgU7xEfj469','_blank');
+                        }
+                    });                    
+                });				
+            });        
 
-            $(".from_date").datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true,
-            }).on('changeDate', function (selected) {
-                var startDate = new Date(selected.date.valueOf());
-                $('.to_date').datepicker('setStartDate', startDate);
-            }).on('clearDate', function (selected) {
-                $('.to_date').datepicker('setStartDate', null);
-            });
-
-            $(".to_date").datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true,
-            }).on('changeDate', function (selected) {
-                var endDate = new Date(selected.date.valueOf());
-                $('.from_date').datepicker('setEndDate', endDate);
-            }).on('clearDate', function (selected) {
-                $('.from_date').datepicker('setEndDate', null);
-            });
-        })
     </script>
 </head>
 
 <body>
     <div>
         <ul class="topnav">
-            <li><a class="active" href="/query-table/jHmnr0RByHveOxu0" target="_blank">Genel Rapor</a></li>
-            <li><a href="#news">r2</a></li>
-            <li><a href="#contact">r3</a></li>
-            <li class="right"><a href="#about">r4</a></li>
+            <li><a class="active" target="_blank">Raporlar</a></li>
         </ul>
 
-        <div class="bootstrap-iso">
+        <form action="//query-table" method="post" >
+             <!-- enctype="multipart/form-data" -->
+        <div class="bootstrap-iso topBetween">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
-                        <input class="from_date form-control" placeholder="Balang Tarıhı" type="text" name="from_date">
-                        <input class="to_date form-control" placeholder="Bıtı Tarıhı" type="text" name="to_date">
+                    <div class="col-md-3">
+                        <input class="from_date form-control" placeholder="Balang Tarıhı" type="text" id="daterange" name="daterange">
+                    </div>
+                    <div class="col-md-3">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                            <button class="btn btn-primary dropdown-toggle form-control m1" type="button" data-toggle="dropdown">Marka Seçiniz
                             <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">HTML</a></li>
-                              <li><a href="#">CSS</a></li>
-                              <li><a href="#">JavaScript</a></li>
+                            <ul name="markMenu" id="markMenu" class="dropdown-menu">
+                                    <li><a href="#">ACAR</a></li>
+                                    <li><a href="#">ADES</a></li>
+                                    <li><a href="#">AK-İŞ</a></li>
+                                    <li><a href="#">AKROS</a></li>
+                                    <li><a href="#">ARMAS</a></li>
+                                    <li><a href="#">ART</a></li>
+                                    <li><a href="#">BERNER</a></li>
+                                    <li><a href="#">BEŞER</a></li>
+                                    <li><a href="#">BOSCH</a></li>
+                                    <li><a href="#">BREMBO</a></li>
+                                    <li><a href="#">CASTROL</a></li>
+                                    <li><a href="#">CONTİTEC</a></li>
+                                    <li><a href="#">DAYCO</a></li>
+                                    <li><a href="#">DELPHI</a></li>
+                                    <li><a href="#">DENSO</a></li>
+                                    <li><a href="#">DJ AUTO</a></li>
+                                    <li><a href="#">DJ PARTS</a></li>
+                                    <li><a href="#">DOLZ</a></li>
+                                    <li><a href="#">DUPONT</a></li>
+                                    <li><a href="#">ELRING</a></li>
+                                    <li><a href="#">ERA</a></li>
+                                    <li><a href="#">ET1BERU</a></li>
+                                    <li><a href="#">FAG</a></li>
+                                    <li><a href="#">FDR</a></li>
+                                    <li><a href="#">FEDERAL MOGUL</a></li>
+                                    <li><a href="#">FOMOCO</a></li>
+                                    <li><a href="#">FTE</a></li>
+                                    <li><a href="#">GARRETT</a></li>
+                                    <li><a href="#">GATES</a></li>
+                                    <li><a href="#">GLOBAL</a></li>
+                                    <li><a href="#">GRG</a></li>
+                                    <li><a href="#">GÜNEŞ</a></li>
+                                    <li><a href="#">HATTAT</a></li>
+                                    <li><a href="#">HELLA</a></li>
+                                    <li><a href="#">HMPX</a></li>
+                                    <li><a href="#">INWELLS</a></li>
+                                    <li><a href="#">ISKRA</a></li>
+                                    <li><a href="#">ITHAL</a></li>
+                                    <li><a href="#">İBRAŞ</a></li>
+                                    <li><a href="#">İNA</a></li>
+                                    <li><a href="#">İNWELLS</a></li>
+                                    <li><a href="#">İTHAL</a></li>
+                                    <li><a href="#">KALE</a></li>
+                                    <li><a href="#">KING</a></li>
+                                    <li><a href="#">LUK</a></li>
+                                    <li><a href="#">MAGNETTI MARELLI</a></li>
+                                    <li><a href="#">MAHLE</a></li>
+                                    <li><a href="#">MONTAJ</a></li>
+                                    <li><a href="#">MOTORCRAFT</a></li>
+                                    <li><a href="#">NİSSENS</a></li>
+                                    <li><a href="#">OES</a></li>
+                                    <li><a href="#">ORİS</a></li>
+                                    <li><a href="#">OTOKOÇ</a></li>
+                                    <li><a href="#">OTOSAN</a></li>
+                                    <li><a href="#">ÖZGAYD</a></li>
+                                    <li><a href="#">PEUGEOT</a></li>
+                                    <li><a href="#">PİERBURG</a></li>
+                                    <li><a href="#">PRS</a></li>
+                                    <li><a href="#">PURFLUKS</a></li>
+                                    <li><a href="#">REMPART</a></li>
+                                    <li><a href="#">SACHS</a></li>
+                                    <li><a href="#">SAFFER</a></li>
+                                    <li><a href="#">SİLBAK</a></li>
+                                    <li><a href="#">SKF</a></li>
+                                    <li><a href="#">SKT</a></li>
+                                    <li><a href="#">STD</a></li>
+                                    <li><a href="#">SUPSAN</a></li>
+                                    <li><a href="#">SUPTEX</a></li>
+                                    <li><a href="#">SWAG</a></li>
+                                    <li><a href="#">ŞAHİN</a></li>
+                                    <li><a href="#">TEKLAS</a></li>
+                                    <li><a href="#">TEKNOROT</a></li>
+                                    <li><a href="#">TİMKEN</a></li>
+                                    <li><a href="#">TİRSAN</a></li>
+                                    <li><a href="#">TURTEL</a></li>
+                                    <li><a href="#">UFİ</a></li>
+                                    <li><a href="#">UNUVAR</a></li>
+                                    <li><a href="#">ÜÇPA</a></li>
+                                    <li><a href="#">VALEO</a></li>
+                                    <li><a href="#">VDO</a></li>
+                                    <li><a href="#">VDS</a></li>
+                                    <li><a href="#">VİCTOR REİNZ</a></li>
+                                    <li><a href="#">VİSTEON</a></li>
+                                    <li><a href="#">VOLDİ</a></li>
+                                    <li><a href="#">VOLMER</a></li>
+                                    <li><a href="#">WABCO</a></li>
+                                    <li><a href="#">WAGEN</a></li>
+                                    <li><a href="#">WINTECH</a></li>
+                                    <li><a href="#">WOD</a></li>
+                                    <li><a href="#">YENMAK</a></li>
+                                    <li><a href="#">YERLİ</a></li>
+                                    <li><a href="#">ZEGEN</a></li>
                             </ul>
-                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                            <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle  form-control m2" type="button" data-toggle="dropdown">Rapor Seçiniz
+                                    <span class="caret"></span></button>
+                                    <ul name="reportMenu" id="reportMenu" class="dropdown-menu">
+                                        <li><a target="_blank" id="select_link" style="cursor:pointer;" >Genel Alış Satış Raporu</a></li>
+                                    </ul>
+                                </div>
+                        </div>                    
+                    <div class="col-md-3">
+                        <button class="btn btn-sm btn-primary  form-control" style="display:none;" >Rapor Üret</button>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
     </div>
 </body>
 

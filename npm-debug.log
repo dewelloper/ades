@@ -1,0 +1,214 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'D:\\SedaErp\\sedapad\\ades',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\yildi\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 warn prepublish-on-install As of npm@5, `prepublish` scripts will run only for `npm publish`.
+11 warn prepublish-on-install (In npm@4 and previous versions, it also runs for `npm install`.)
+12 warn prepublish-on-install See the deprecation note in `npm help scripts` for more information.
+13 info lifecycle sqlpad@2.2.0~prepublish: sqlpad@2.2.0
+14 verbose lifecycle sqlpad@2.2.0~prepublish: unsafe-perm in lifecycle true
+15 verbose lifecycle sqlpad@2.2.0~prepublish: PATH: C:\Program Files (x86)\nodejs\node_modules\npm\bin\node-gyp-bin;D:\SedaErp\sedapad\ades\node_modules\.bin;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\yildi\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\nodejs\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Users\yildi\AppData\Local\Microsoft\WindowsApps;C:\Users\yildi\AppData\Roaming\npm;C:\Program Files\Heroku\bin;C:\Users\yildi\AppData\Local\GitHubDesktop\bin;C:\Program Files\Microsoft VS Code\bin
+16 verbose lifecycle sqlpad@2.2.0~prepublish: CWD: D:\SedaErp\sedapad\ades
+17 silly lifecycle sqlpad@2.2.0~prepublish: Args: [ '/d /s /c', 'npm run build' ]
+18 silly lifecycle sqlpad@2.2.0~prepublish: Returned: code: 0  signal: null
+19 info lifecycle sqlpad@2.2.0~prepare: sqlpad@2.2.0
+20 silly lifecycle sqlpad@2.2.0~prepare: no script for prepare, continuing
+21 verbose tar pack [ 'C:\\Users\\yildi\\AppData\\Roaming\\npm-cache\\sqlpad\\2.2.0\\package.tgz',
+21 verbose tar pack   'D:\\SedaErp\\sedapad\\ades' ]
+22 verbose tarball C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package.tgz
+23 verbose folder D:\SedaErp\sedapad\ades
+24 verbose addLocalTarball adding from inside cache C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package.tgz
+25 verbose correctMkdir C:\Users\yildi\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+26 silly cache afterAdd sqlpad@2.2.0
+27 verbose afterAdd C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package\package.json not in flight; writing
+28 verbose correctMkdir C:\Users\yildi\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+29 verbose afterAdd C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package\package.json written
+30 silly publish { name: 'sqlpad',
+30 silly publish   version: '2.2.0',
+30 silly publish   description: 'Web app for writing and running SQL queries and visualizing the results. Supports Postgres, MySQL, SQL Server, Crate and Vertica.',
+30 silly publish   license: 'MIT',
+30 silly publish   author: { name: 'Rick Bergfalk', email: 'rick.bergfalk@gmail.com' },
+30 silly publish   engines: { node: '>=6' },
+30 silly publish   contributors: [ { name: 'D. Can Celasun', email: 'dcelasun@gmail.com' } ],
+30 silly publish   keywords:
+30 silly publish    [ 'sql',
+30 silly publish      'mssql',
+30 silly publish      'postgres',
+30 silly publish      'postgresql',
+30 silly publish      'mysql',
+30 silly publish      'crate',
+30 silly publish      'presto',
+30 silly publish      'vertica' ],
+30 silly publish   repository: { type: 'git', url: 'git://github.com/rickbergfalk/sqlpad.git' },
+30 silly publish   bugs:
+30 silly publish    { url: 'https://github.com/rickbergfalk/sqlpad/issues',
+30 silly publish      email: 'rick.bergfalk@gmail.com' },
+30 silly publish   proxy: 'http://localhost:3010',
+30 silly publish   homepage: 'http://BASEURL',
+30 silly publish   scripts:
+30 silly publish    { build: 'react-scripts build',
+30 silly publish      coverage: 'istanbul cover _mocha -- --recursive',
+30 silly publish      prepublish: 'npm run build',
+30 silly publish      standard: 'standard --fix',
+30 silly publish      'start-client-dev': 'react-scripts start',
+30 silly publish      'start-server-dev': 'node-dev server.js --dir ./db --port 3010 --debug',
+30 silly publish      start: 'concurrently "npm run start-server-dev" "npm run start-client-dev"',
+30 silly publish      'test-client': 'react-scripts test --env=jsdom',
+30 silly publish      test: 'standard && mocha --recursive' },
+30 silly publish   dependencies:
+30 silly publish    { async: '^2.0.1',
+30 silly publish      'bcrypt-nodejs': '0.0.3',
+30 silly publish      'body-parser': '1.x.x',
+30 silly publish      'cookie-parser': '1.x.x',
+30 silly publish      'cookie-session': '1.x.x',
+30 silly publish      'detect-port': '^1.0.0',
+30 silly publish      errorhandler: '^1.4.0',
+30 silly publish      express: '4.x.x',
+30 silly publish      joi: '^10.0.1',
+30 silly publish      json2csv: '^3.7.3',
+30 silly publish      'latest-version': '^3.1.0',
+30 silly publish      lodash: '^4.13.1',
+30 silly publish      minimist: '^1.2.0',
+30 silly publish      mkdirp: '^0.5.1',
+30 silly publish      moment: '2.x.x',
+30 silly publish      morgan: '1.x.x',
+30 silly publish      mssql: '^3.0.0',
+30 silly publish      multer: '^1.3.0',
+30 silly publish      mysql: '2.x.x',
+30 silly publish      nedb: '1.x.x',
+30 silly publish      'node-crate': '1.x.x',
+30 silly publish      'node-xlsx': '^0.7.1',
+30 silly publish      nodemailer: '^2.6.0',
+30 silly publish      passport: '^0.3.2',
+30 silly publish      'passport-google-oauth2': '^0.1.6',
+30 silly publish      'passport-http': '^0.3.0',
+30 silly publish      'passport-local': '^1.0.0',
+30 silly publish      pg: '^6.0.0',
+30 silly publish      'pg-cursor': '^1.0.1',
+30 silly publish      'presto-client': '^0.1.0',
+30 silly publish      request: '^2.58.0',
+30 silly publish      rimraf: '^2.5.4',
+30 silly publish      'sanitize-filename': '1.x.x',
+30 silly publish      'semver-diff': '^2.1.0',
+30 silly publish      'serve-favicon': '2.x.x',
+30 silly publish      socksjs: '^0.5.0',
+30 silly publish      toml: '^2.3.0',
+30 silly publish      uuid: '^3.0.1',
+30 silly publish      vertica: '0.5.x' },
+30 silly publish   main: 'server.js',
+30 silly publish   bin: { sqlpad: './server.js' },
+30 silly publish   devDependencies:
+30 silly publish    { '@rickbergfalk/sqlpad-react-scripts': '^1.0.7',
+30 silly publish      'babel-eslint': '^7.2.3',
+30 silly publish      brace: '^0.10.0',
+30 silly publish      chai: '^4.0.0',
+30 silly publish      concurrently: '^3.5.0',
+30 silly publish      'deep-equal': '^1.0.1',
+30 silly publish      ejs: '^2.5.6',
+30 silly publish      'fixed-data-table': '^0.6.3',
+30 silly publish      'fs-extra': '^3.0.1',
+30 silly publish      istanbul: '^0.4.4',
+30 silly publish      keymaster: '^1.6.2',
+30 silly publish      'marky-mark': '1.x.x',
+30 silly publish      mocha: '^3.0.0',
+30 silly publish      'node-dev': '^3.1.3',
+30 silly publish      page: '^1.7.1',
+30 silly publish      'prop-types': '^15.5.10',
+30 silly publish      react: '^15.1.0',
+30 silly publish      'react-ace': '^5.0.1',
+30 silly publish      'react-bootstrap': '^0.31.0',
+30 silly publish      'react-copy-to-clipboard': '^5.0.0',
+30 silly publish      'react-dom': '^15.1.0',
+30 silly publish      'react-overlays': '^0.7.0',
+30 silly publish      'react-s-alert': '^1.1.4',
+30 silly publish      'react-select': '^1.0.0-rc.1',
+30 silly publish      standard: '^10.0.2',
+30 silly publish      taucharts: '^1.2.1',
+30 silly publish      watch: '^1.0.2',
+30 silly publish      'whatwg-fetch': '^2.0.1' },
+30 silly publish   standard:
+30 silly publish    { parser: 'babel-eslint',
+30 silly publish      globals: [ 'fetch' ],
+30 silly publish      ignore: [ '/public/', '/build/' ] },
+30 silly publish   readme: '# SQLPad\r\n\r\nA web app for writing and running SQL queries and visualizing the results. Supports Postgres, MySQL, SQL Server, Crate, Vertica, and Presto. Written in Node.js.\r\n\r\n![SQLPad Query List](http://rickbergfalk.github.io/sqlpad/images/screenshots/queries.png)\r\n![SQLPad Query Editor](http://rickbergfalk.github.io/sqlpad/images/screenshots/query-editor.png)\r\n![SQLPad Chart Editor](http://rickbergfalk.github.io/sqlpad/images/screenshots/chart-line.png)\r\n\r\n\r\n## Installation and Usage\r\n\r\nVisit project page at [http://rickbergfalk.github.io/sqlpad/](http://rickbergfalk.github.io/sqlpad/).\r\n\r\nQuickstart: \r\n\r\n```sh\r\n# Assuming node 6 or later is installed\r\nnpm install sqlpad -g \r\nsqlpad --help\r\n```\r\n\r\nTo update sqlpad installed via npm run \r\n```sh\r\nnpm install sqlpad -g\r\n```\r\n\r\n\r\n## Development\r\n\r\n**Using docker**\r\n```sh\r\ndocker-compose run --rm web npm -i\r\ndocker-compose up\r\n```\r\n\r\n**Locally**\r\n- Clone/download repo\r\n- Install node 6 or later\r\n- Install npm5\r\n- run `npm start` from command line \r\n\r\nAt this point you should have both backend and front-end development servers running.\r\n\r\nhttp://localhost:3000 serves react front-end in dev-mode\r\nhttp://localhost:3010 serves front-end compiled for production\r\n\r\nBoth front-end/back-end should auto-refresh/auto-reload on file change.\r\n\r\nTo build front-end production files run `npm run build`.\r\n\r\nSee [wiki](https://github.com/rickbergfalk/sqlpad/wiki/Development-Guide) for additional development details and project information.\r\n\r\n\r\n## Tips\r\n\r\nIf you have highlighted just part of your query, only that part will be executed when you click Run Query.\r\n\r\n\r\n## License \r\n\r\nMIT\r\n',
+30 silly publish   readmeFilename: 'README.md',
+30 silly publish   gitHead: 'f74967b7197600b9e26b5b9edee05cd36a13f59b',
+30 silly publish   _id: 'sqlpad@2.2.0',
+30 silly publish   _shasum: '771b933d0015d348ae5bb905bf7e666ae320a36d',
+30 silly publish   _from: '.' }
+31 info lifecycle sqlpad@2.2.0~prepublishOnly: sqlpad@2.2.0
+32 silly lifecycle sqlpad@2.2.0~prepublishOnly: no script for prepublishOnly, continuing
+33 verbose getPublishConfig undefined
+34 silly mapToRegistry name sqlpad
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry data Result {
+37 silly mapToRegistry   raw: 'sqlpad',
+37 silly mapToRegistry   scope: null,
+37 silly mapToRegistry   escapedName: 'sqlpad',
+37 silly mapToRegistry   name: 'sqlpad',
+37 silly mapToRegistry   rawSpec: '',
+37 silly mapToRegistry   spec: 'latest',
+37 silly mapToRegistry   type: 'tag' }
+38 silly mapToRegistry uri https://registry.npmjs.org/sqlpad
+39 verbose publish registryBase https://registry.npmjs.org/
+40 silly publish uploading C:\Users\yildi\AppData\Roaming\npm-cache\sqlpad\2.2.0\package.tgz
+41 verbose request uri https://registry.npmjs.org/sqlpad
+42 verbose request sending authorization for write operation
+43 info attempt registry request try #1 at 15:40:41
+44 verbose request using bearer token for auth
+45 verbose request id f84ef904566dced8
+46 http request PUT https://registry.npmjs.org/sqlpad
+47 http 403 https://registry.npmjs.org/sqlpad
+48 verbose headers { 'content-type': 'application/json',
+48 verbose headers   'cache-control': 'max-age=300',
+48 verbose headers   'content-length': '100',
+48 verbose headers   'accept-ranges': 'bytes',
+48 verbose headers   date: 'Sat, 26 Aug 2017 12:40:52 GMT',
+48 verbose headers   via: '1.1 varnish',
+48 verbose headers   connection: 'keep-alive',
+48 verbose headers   'x-served-by': 'cache-fra1235-FRA',
+48 verbose headers   'x-cache': 'MISS',
+48 verbose headers   'x-cache-hits': '0',
+48 verbose headers   'x-timer': 'S1503751240.182524,VS0,VE12218',
+48 verbose headers   vary: 'Accept-Encoding, Accept' }
+49 verbose request invalidating C:\Users\yildi\AppData\Roaming\npm-cache\registry.npmjs.org\sqlpad on PUT
+50 error publish Failed PUT 403
+51 verbose stack Error: You do not have permission to publish "sqlpad". Are you logged in as the correct user? : sqlpad
+51 verbose stack     at makeError (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:304:12)
+51 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:292:14)
+51 verbose stack     at Request._callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:212:14)
+51 verbose stack     at Request.self.callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:186:22)
+51 verbose stack     at emitTwo (events.js:106:13)
+51 verbose stack     at Request.emit (events.js:194:7)
+51 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:1081:10)
+51 verbose stack     at emitOne (events.js:96:13)
+51 verbose stack     at Request.emit (events.js:191:7)
+51 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:1001:12)
+52 verbose statusCode 403
+53 verbose pkgid sqlpad
+54 verbose cwd D:\SedaErp\sedapad\ades
+55 error Windows_NT 10.0.14393
+56 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+57 error node v7.7.1
+58 error npm  v4.1.2
+59 error code E403
+60 error You do not have permission to publish "sqlpad". Are you logged in as the correct user? : sqlpad
+61 error If you need help, you may report this error at:
+61 error     <https://github.com/npm/npm/issues>
+62 verbose exit [ 1, true ]

@@ -91,7 +91,7 @@ class App extends React.Component {
             <MenuItem eventKey={3.2} onClick={navigateToClickHandler('/users')} >Kullanıcılar</MenuItem>
             <MenuItem eventKey={3.3} onClick={navigateToClickHandler('/config-values')} >Ayarlar</MenuItem>
             <MenuItem divider />
-            {/* <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem> */}
+            <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem>
             <MenuItem divider />
             <MenuItem eventKey={3.5} onClick={this.signout}>Çıkış</MenuItem>
           </NavDropdown>
@@ -99,7 +99,7 @@ class App extends React.Component {
       } else {
         return (
           <NavDropdown eventKey={3} title={this.props.currentUser.email.split('@')[0]} id='user-nav-dropdown'>
-            {/* <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem> */}
+            <MenuItem eventKey={3.4} onClick={this.openAboutModal} >About SQLPad</MenuItem>
             <MenuItem divider />
             <MenuItem eventKey={3.5} onClick={this.signout}>Çıkış</MenuItem>
           </NavDropdown>
@@ -149,7 +149,7 @@ class App extends React.Component {
                 <a href='https://github.com/rickbergfalk/sqlpad/issues' target='_blank' rel='noopener noreferrer'>
                   Submit an Issue <span className='glyphicon glyphicon-new-window' aria-hidden='true' />
                 </a>
-              </li
+              </li>
             </ul>
           </Modal.Body>
           <Modal.Footer>
